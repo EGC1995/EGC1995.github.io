@@ -14,22 +14,24 @@
     <body>
 
 
-        <div class = "card-panel light-green darken-3"></div>
+        <!-- <div class = "card-panel light-green darken-3"></div> -->
         <span>
             <h2 class="animated swing center align">Example</h2>
         </span>
         <div class = "container">
-          <table>
-            <tr class = "center align">
-              <td><a class="waves-effect waves-light btn">button</a></td>
-              <td><a class="waves-effect waves-light btn">button</a></td>
-              <td><a class="waves-effect waves-light btn">button</a></td>
-              <td><a class="waves-effect waves-light btn">button</a></td>
-              <td><a class="waves-effect waves-light btn">button</a></td>
-            <tr>
-          </table>
+          <ul class = "tabs center align">
+              <li class="tab col s3"><a class="active" href="#test1">Resume</a></li>
+              <li class="tab col s3"><a href="#test2">Projects</a></li>
+              <li class="tab col s3"><a href="#test3">Coursework</a></li>
+              <li class="tab col s3"><a href="#test4">Hobbies</a></li>
+          </ul>
         </div>
 
+
+        <div id = "test1">Resume</div>
+        <div id = "test2">Projects</div>
+        <div id = "test3">Relevant Coursework</div>
+        <div id = "test4">Hobbies</div>
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
