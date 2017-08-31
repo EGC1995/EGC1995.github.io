@@ -2,10 +2,11 @@ html {
   color: black;
   font-family: Impact, fantasy;
   font-weight: 900;
+  background-color: DarkSlateGray;
 }
 
 p{
   color: black;
   text-align: center;
-  font-size: 40px; 
+  font-size: 40px;
 }
