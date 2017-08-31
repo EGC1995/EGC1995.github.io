@@ -1,3 +1,11 @@
 html {
-  font-family: GillSans, Calibri, Trebuchet, sans-serif;
+  color: black;
+  font-family: Impact, fantasy;
+  font-weight: 900;
+}
+
+p{
+  color: black;
+  text-align: center;
+  font-size: 40px; 
 }
