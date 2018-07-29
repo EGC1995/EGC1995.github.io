@@ -10,13 +10,73 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
       <style>
-        html, body {
-              height: 100%;
-          }
+        html,
+        body {
+            height: 100%;
+        }
+        .piechartdiv {
+          width: 30%;
+          height:30%;
+          margin:5px;
+          position:relative;
+          display: inline-block;
+        }
       </style>
+
+      <script type="text/javascript">
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+        google.charts.setOnLoadCallback(databasedrawChart);
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['Language', 'Speakers (in millions)'],
+            ['Python', 50], ['Java', 15], ['C++', 10],['C', 35],['Perl', 10]
+          ]);
+          var options = {
+            legend: 'none',
+            pieSliceText: 'label',
+            chartArea:{left:0,top:90},
+            slices: {  1: {offset: 0.1},
+                      2: {offset: 0.1},
+                      3: {offset: 0.1},
+                      4: {offset: 0.1},
+            },
+          };
+          var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+          chart.draw(data, options);
+          function resize() {
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            chart.draw(data, options);
+          }
+          window.onload = resize();
+          window.onresize = resize;
+        }
+        function databasedrawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['Language', 'Speakers (in millions)'],
+            ['SQL', 50], ['Graph', 25], ['NoSQL', 25]
+          ]);
+          var options = {
+            legend: 'none',
+            pieSliceText: 'label',
+            chartArea:{left:0,top:90},
+            slices: {  1: {offset: 0.1},
+                      2: {offset: 0.1},
+                      3: {offset: 0.1},
+            },
+          };
+          var chart = new google.visualization.PieChart(document.getElementById('data_piechart'));
+          chart.draw(data, options);
+          function resize() {
+            var chart = new google.visualization.PieChart(document.getElementById('data_piechart'));
+            chart.draw(data, options);
+          }
+          window.onload = resize();
+          window.onresize = resize;
+        }
+      </script>
 
 
     </head>
@@ -55,14 +115,12 @@
         </div>
       </nav>
 
-      <br>
-      <canvas id="myChart" style="width: 50%; height: 30%;"></canvas>
-      <canvas id="myChart2" style="width: 50%; height: 30%;"></canvas>
 
+        <div class="piechartdiv" id="piechart"></div>
+        <div class="piechartdiv" id="data_piechart"></div>
       <br>
-        <!-- <div id="piechart" style="width: 40%; height: 40%;"></div>
-        <div id="data_piechart" style="width: 40%; height: 40%;"></div> -->
-
+      <br>
+      <br>
       <nav>
         <div class="nav-wrapper cyan darken-1">
           <a id="courses" class="brand-logo center"><font="Arial">Course Work</font></a>
@@ -138,55 +196,6 @@
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
       <script type="text/javascript" src="init.js"></script>
-
-      <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var ctx2 = document.getElementById('myChart2').getContext('2d');
-
-        data = {
-            datasets: [{
-                data: [25, 25, 50],
-                backgroundColor: ['#333366','#68ffff','#336666']
-            }],
-
-            // These labels appear in the legend and in the tooltips when hovering different arcs
-            labels: [
-                'Graph',
-                'NoSQL',
-                'SQL'
-            ]
-        };
-
-        data2 = {
-            datasets: [{
-                data: [25, 25, 50, 0],
-                backgroundColor: ['#333366','#68ffff','#336666','#336666']
-            }],
-
-            // These labels appear in the legend and in the tooltips when hovering different arcs
-            labels: [
-                'Python',
-                'Java',
-                'C++',
-                'C'
-            ]
-        };
-
-        options={};
-
-        var myDoughnutChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: data,
-            options: options
-        });
-        var myDoughnutChart2 = new Chart(ctx2, {
-            type: 'doughnut',
-            data: data2,
-            options: options
-        });
-
-
-      </script>
 
     </body>
   </html>
