@@ -8,6 +8,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 
       <style>
@@ -16,15 +17,21 @@
             margin: 0;
             padding: 0;
         }
-        div{
+        /* div{
           position: relative;
           clear:both;
-        }
-        section {
+        } */
+        #section1 {
           float: left;
-          width: 45%;
+          width: 50%;
           margin: 0;
           padding: 0;
+        }
+        #section2 {
+          float: center;
+          width: 100%;
+          margin-right: 10px;
+          margin-left: 10px;
         }
       </style>
     </head>
@@ -36,7 +43,7 @@
           <a class="brand-logo center"><font="Arial">About Me</font></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li id="home" class ="active"><a href="#home">Home</a></li>
-            <li><a href="#resume">Resume</a></li>
+            <li><a href="#resume">Experience</a></li>
             <li><a href="#courses">Coursework</a></li>
             <li><a target="_blank" href="https://github.com/EGC1995">Github</a></li>
           </ul>
@@ -60,19 +67,28 @@
 <div>
       <nav>
         <div class="nav-wrapper grey darken-3">
-          <a id="resume" class="brand-logo center"><font="Arial">Skills and Experience</font></a>
+          <a id="resume" class="brand-logo center"><font="Arial">Experience</font></a>
         </div>
       </nav>
-
 <br>
-      <section>
+      <section id="section1">
         <canvas id="myChart" style="height:200; width:200;"></canvas>
       </section>
-      <section>
+      <section id="section1">
         <canvas id="myChart2" style="height:200; width:200;"></canvas>
       </section>
       <br>
+      <br>
+      <br>
+      <h4 align="center">Career Timeline</h4>
+      <div id="timeline" style="margin: 20px;"></div>
+      <br>
 </div>
+
+
+
+
+
 
 <div>
       <nav>
@@ -211,10 +227,43 @@
                        bottom: 0
                    }
                },
-              maintainAspectRatio: false
-              // responsive: false
+              maintainAspectRatio: false,
+              responsive: true
             }
         });
+
+
+
+        google.charts.load('current', {'packages':['timeline']});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+          var container = document.getElementById('timeline');
+          var chart = new google.visualization.Timeline(container);
+          var dataTable = new google.visualization.DataTable();
+
+          dataTable.addColumn({ type: 'string', id: 'Company' });
+          dataTable.addColumn({ type: 'date', id: 'Start' });
+          dataTable.addColumn({ type: 'date', id: 'End' });
+          dataTable.addRows([
+            [ 'Undergraduate', new Date(2014, 8, 24), new Date(2018, 5, 24) ],
+            // [ 'Research', new Date(2015, 5, 15), new Date(2015, 8, 20) ],
+            [ 'Intel Corporation', new Date(2016, 6, 13),  new Date(2018, 5, 18) ],
+            [ 'General Motors',  new Date(2018, 6, 4),  new Date() ]]);
+          options = {
+            colors: ['#429fa4', '#85daff', '#161025'],
+          };
+          chart.draw(dataTable, options);
+          function resize () {
+              var chart = new google.visualization.Timeline(document.getElementById('timeline'));
+              chart.draw(dataTable, options);
+          }
+
+          window.onload = resize;
+          window.onresize = resize;
+        }
+
+
+
       </script>
     </body>
   </html>
