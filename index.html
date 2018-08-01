@@ -33,6 +33,13 @@
           margin-right: 10px;
           margin-left: 10px;
         }
+        img {
+            height: 30%;
+            width: 50%;
+        }
+        th, td {
+            border-bottom: 1px solid black;
+        }
       </style>
     </head>
 
@@ -46,6 +53,7 @@
             <li><a href="#resume">Experience</a></li>
             <li><a href="#courses">Coursework</a></li>
             <li><a target="_blank" href="https://github.com/EGC1995">Github</a></li>
+            <li><a target="_blank" href="https://www.linkedin.com/in/eugene-choe-b4382911a/">Linkedin</a></li>
           </ul>
         </div>
       </nav>
@@ -83,6 +91,11 @@
       <h4 align="center">Career Timeline</h4>
       <div id="timeline" style="margin: 20px;"></div>
       <br>
+      <h5 align="Center">For a more comprehensive summary of my skills and experience, please take a look at my <a target="_blank" href="eugene_choe_resume.pdf">resume</a> and <a target="_blank" href="https://www.linkedin.com/in/eugene-choe-b4382911a/">Linkedin profile</a>!</h5>
+      <br>
+      <br>
+
+
 </div>
 
 
@@ -163,6 +176,39 @@
     </nav>
 </div>
 
+<ul class="collapsible popout">
+  <li>
+    <div class="collapsible-header"><i class="material-icons">web</i>MixologyMe</div>
+    <div class="collapsible-body row">
+      <table>
+        <tr>
+          <td><img src="images/mixologyme_start.png"></td>
+          <td><h5>This is the initial landing page. The user interace is intuitive and interactive. You are allowed to input one alcoholic ingredient as well as one mixer</h5></td>
+        </tr>
+        <tr>
+          <td><img src="images/options.png" style="height: 30%;width: 40%;"align="middle"></td>
+          <td><h5>The user chooses an alcoholic ingredient from the first dropdown menu</h5></td>
+        </tr>
+
+        <tr>
+          <td><img src="images/options2.png" style="height: 30%;width: 40%;" align="middle"></td>
+          <td><h5>The user chooses a mixer ingredient from the second dropdown menu</h5></td>
+        </tr>
+
+        <tr>
+          <td><img src="images/full view.png" align="middle"></td>
+          <td><h5>The user can now push the "LET'S GET MIXING" button and get all the possibilities of drinks containing those two ingredients on the right hand side of the webpage</h5></td>
+        </tr>
+    </table>
+    </div>
+
+  </li>
+</ul>
+
+
+
+
+
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
@@ -207,7 +253,7 @@
             data: {
                 labels: ["SQL", "NoSQL", "Graph"],
                 datasets: [{
-                    label: "Database Expertise",
+                    label: "Database Proficiency",
                     data: [7, 5, 5],
                     backgroundColor: "rgba(255,0,0,0.2)",
                 }]
